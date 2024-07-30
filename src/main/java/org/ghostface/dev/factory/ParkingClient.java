@@ -1,21 +1,21 @@
 package org.ghostface.dev.factory;
 
-import org.ghostface.dev.imp.Vehicle;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Range;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 public abstract non-sealed class ParkingClient implements UserFactory, Serializable {
 
-    private final long id;
+    private final @Range(from = 1, to = Long.MAX_VALUE) long id;
 
     public ParkingClient(long id) {
         this.id = id;
     }
 
-    public final long getId() {
+    public final @Range(from = 0, to = Long.MAX_VALUE) long getId() {
         return id;
     }
 

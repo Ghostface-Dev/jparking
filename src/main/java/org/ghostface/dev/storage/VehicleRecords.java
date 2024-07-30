@@ -1,12 +1,8 @@
 package org.ghostface.dev.storage;
 
-import org.ghostface.dev.imp.Vehicle;
+import org.ghostface.dev.impl.Vehicle;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 
 public class VehicleRecords extends LocalStorage<@NotNull Vehicle> {
 

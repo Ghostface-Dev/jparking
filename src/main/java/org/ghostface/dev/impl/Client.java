@@ -1,9 +1,10 @@
-package org.ghostface.dev.imp;
+package org.ghostface.dev.impl;
 
 import org.ghostface.dev.factory.ParkingClient;
 
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import java.time.OffsetDateTime;
 
@@ -15,7 +16,7 @@ public class Client extends ParkingClient {
     private @NotNull Vehicle vehicle;
     private final @NotNull OffsetDateTime creationDate;
 
-    public Client(long id, @NotNull String name, @NotNull String cpf, @NotNull String email, @NotNull Vehicle vehicle) {
+    public Client(@Range(from = 0, to = Long.MAX_VALUE) long id, @NotNull String name, @NotNull String cpf, @NotNull String email, @NotNull Vehicle vehicle) {
         super(id);
         this.name = name;
         this.cpf = cpf;
@@ -49,8 +50,6 @@ public class Client extends ParkingClient {
         return creationDate;
     }
 
-    // setters
-    //todo verificar emails duplicados
     @Override
     public void setEmail(@NotNull String email) {
         this.email = email;

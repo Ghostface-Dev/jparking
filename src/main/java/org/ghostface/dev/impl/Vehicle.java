@@ -1,10 +1,11 @@
-package org.ghostface.dev.imp;
+package org.ghostface.dev.impl;
 
 import org.ghostface.dev.factory.ParkingClient;
 import org.ghostface.dev.factory.ParkingVehicle;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Range;
 
 import java.time.OffsetDateTime;
 
@@ -17,7 +18,7 @@ public class Vehicle extends ParkingVehicle {
     private @NotNull String color;
     private final @NotNull OffsetDateTime creationDate;
 
-    public Vehicle(long id, @NotNull String plate, @NotNull String name, @NotNull String brand, @NotNull String color) {
+    public Vehicle(@Range(from = 1, to = Long.MAX_VALUE) long id, @NotNull String plate, @NotNull String name, @NotNull String brand, @NotNull String color) {
         super(id);
         this.plate = plate;
         this.name = name;

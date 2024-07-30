@@ -2,12 +2,11 @@ package org.ghostface.dev.factory;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Range;
 
 import java.time.OffsetDateTime;
 
 sealed interface VehicleFactory permits ParkingVehicle {
-
-    long getId();
 
     @Nullable ParkingClient getClient();
 

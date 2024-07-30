@@ -1,12 +1,8 @@
 package org.ghostface.dev.storage;
 
-import org.ghostface.dev.imp.Client;
+import org.ghostface.dev.impl.Client;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 
 public class ClientRecords extends LocalStorage<@NotNull Client> {
 
