@@ -1,6 +1,6 @@
 package org.ghostface.dev.impl.data;
 
-import org.ghostface.dev.core.Person.*;
+
 import org.ghostface.dev.impl.Client;
 import org.ghostface.dev.storage.FileStorage;
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +26,7 @@ public class CustomerRecord implements FileStorage<Client> {
         } else {
             this.clients = new HashSet<>();
             this.file = new File(directory, "ClientLocalStorage.ser");
-            if (file.exists()) {
+            if (file.exists() && file.length() > 1) {
                 load();
             } else {
                 create();
@@ -37,7 +37,7 @@ public class CustomerRecord implements FileStorage<Client> {
     private void create() {
         try {
             if (file.createNewFile()) {
-                System.err.println("File create: " + file.getAbsolutePath());
+                System.out.println("File create: " + file.getAbsolutePath());
             }
         } catch (IOException e) {
             System.err.println("Failed to create file: "+ e.getMessage());
