@@ -15,8 +15,7 @@ public abstract class Entities implements Serializable {
         this.id = id;
     }
 
-    @Range(from = 1, to = Long.MAX_VALUE)
-    public final int getId() {
+    public final @Range(from = 1, to = Long.MAX_VALUE) int getId() {
         return id;
     }
 
