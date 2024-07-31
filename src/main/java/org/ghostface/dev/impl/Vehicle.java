@@ -1,9 +1,9 @@
 package org.ghostface.dev.impl;
 
-import org.ghostface.dev.core.Automobile.*;
-import org.ghostface.dev.core.Entities;
 
-import org.ghostface.dev.core.Person.*;
+import org.ghostface.dev.core.ParkedVehicle;
+import org.ghostface.dev.core.ParkingClient;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Range;
@@ -11,9 +11,9 @@ import org.jetbrains.annotations.Range;
 import java.time.OffsetDateTime;
 
 
-public class Vehicle extends Entities implements ParkedVehicle {
+public class Vehicle extends ParkedVehicle {
 
-    private @Nullable ParkingClient owner;
+    private @Nullable Client owner;
     private final @NotNull OffsetDateTime date;
     private final @NotNull String plate;
     private final @NotNull String name;
@@ -39,8 +39,7 @@ public class Vehicle extends Entities implements ParkedVehicle {
         return date;
     }
 
-    @Override
-    public final void setOwner(@NotNull ParkingClient owner) {
+    public final void setOwner(@NotNull Client owner) {
         this.owner = owner;
         owner.setVehicle(this);
     }

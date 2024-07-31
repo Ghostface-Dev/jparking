@@ -1,6 +1,7 @@
 package org.ghostface.dev.parking;
 
-import org.ghostface.dev.core.Person.*;
+import org.ghostface.dev.core.ParkingClient;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Range;

@@ -1,7 +1,7 @@
 package org.ghostface.dev;
 
 import org.ghostface.dev.impl.Client;
-import org.ghostface.dev.impl.ParkingSystem;
+import org.ghostface.dev.impl.parking.ParkingSystem;
 import org.ghostface.dev.impl.Vehicle;
 
 public class Main {

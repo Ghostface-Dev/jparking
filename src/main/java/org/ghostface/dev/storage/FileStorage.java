@@ -1,6 +1,5 @@
 package org.ghostface.dev.storage;
 
-import org.ghostface.dev.core.Entities;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Range;

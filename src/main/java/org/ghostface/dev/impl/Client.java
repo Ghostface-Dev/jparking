@@ -1,23 +1,22 @@
 package org.ghostface.dev.impl;
 
-import org.ghostface.dev.core.Automobile.*;
-import org.ghostface.dev.core.Entities;
-import org.ghostface.dev.core.Person.*;
+import org.ghostface.dev.core.ParkedVehicle;
+import org.ghostface.dev.core.ParkingClient;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Range;
 
 import java.time.OffsetDateTime;
 
-public class Client extends Entities implements ParkingClient {
+public class Client extends ParkingClient {
 
-    private @Nullable ParkedVehicle vehicle;
+    private @Nullable Vehicle vehicle;
     private final @NotNull OffsetDateTime date;
     private final @NotNull String name;
     private @NotNull String email;
     private final @NotNull String cpf;
 
-    public Client(@Range(from = 1, to = Long.MAX_VALUE) int id, @NotNull String name, @NotNull String cpf, @NotNull String email, @NotNull ParkedVehicle vehicle) {
+    public Client(@Range(from = 1, to = Long.MAX_VALUE) int id, @NotNull String name, @NotNull String cpf, @NotNull String email, @NotNull Vehicle vehicle) {
         super(id);
         this.date = OffsetDateTime.now();
         this.name = name;
@@ -36,8 +35,7 @@ public class Client extends Entities implements ParkingClient {
         return date;
     }
 
-    @Override
-    public final void setVehicle(@NotNull ParkedVehicle vehicle) {
+    public final void setVehicle(@NotNull Vehicle vehicle) {
         if (vehicle.getOwner() != null) {
             System.err.println("Vehicle: " + vehicle.getName() + " already has an owner: " + vehicle.getOwner().getName());
         } else {

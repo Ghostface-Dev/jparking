@@ -1,6 +1,7 @@
-package org.ghostface.dev.impl;
+package org.ghostface.dev.impl.parking;
 
-import org.ghostface.dev.core.Person.*;
+import org.ghostface.dev.core.ParkingClient;
+
 import org.ghostface.dev.parking.Parking;
 import org.ghostface.dev.parking.Spot;
 import org.jetbrains.annotations.NotNull;
@@ -53,7 +54,7 @@ public class ParkingSystem implements Parking {
     }
 
     @Override
-    public @NotNull Set<@NotNull Integer> spotsOccuped() {
+    public @NotNull Set<@NotNull Integer> spotsOccupied() {
         return spots.entrySet().stream()
                 .filter(spot -> spot.getValue().getStatus() == Spot.Status.BUSY)
                 .map(Map.Entry::getKey)
@@ -75,5 +76,4 @@ public class ParkingSystem implements Parking {
         }
         return true;
     }
-
 }

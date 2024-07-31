@@ -1,5 +1,6 @@
 package org.ghostface.dev.core;
 
+import org.ghostface.dev.impl.Client;
 import org.jetbrains.annotations.NotNull;
 
 import org.jetbrains.annotations.Nullable;
@@ -7,8 +8,9 @@ import org.jetbrains.annotations.Nullable;
 import java.time.OffsetDateTime;
 
 import org.ghostface.dev.core.Person.*;
+import org.jetbrains.annotations.Range;
 
-public interface Automobile {
+interface Automobile {
 
     @NotNull String getPlate();
 
@@ -20,13 +22,5 @@ public interface Automobile {
 
     void setColor(@NotNull String color);
 
-    interface ParkedVehicle extends Automobile {
 
-        @Nullable ParkingClient getOwner();
-
-        @NotNull OffsetDateTime getDate();
-
-        void setOwner(@NotNull ParkingClient owner);
-
-    }
 }
