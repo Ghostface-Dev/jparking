@@ -1,8 +1,8 @@
-package org.ghostface.dev.factory;
+package org.ghostface.dev.core;
 
 import org.jetbrains.annotations.NotNull;
 
-sealed interface UserFactory permits ParkingClient {
+public interface Person {
 
     @NotNull String getName();
 
@@ -12,4 +12,9 @@ sealed interface UserFactory permits ParkingClient {
 
     void setEmail(@NotNull String email);
 
+    interface ParkingAttendee extends Person {
+
+        @NotNull Automobile getVehicle();
+
+    }
 }

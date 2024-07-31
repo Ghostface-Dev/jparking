@@ -1,4 +1,4 @@
-package org.ghostface.dev.factory;
+package org.ghostface.dev.core;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -7,15 +7,16 @@ import org.jetbrains.annotations.Range;
 import java.io.Serializable;
 import java.util.Objects;
 
-public abstract non-sealed class ParkingClient implements UserFactory, Serializable {
+public abstract class Entities implements Serializable {
 
-    private final @Range(from = 1, to = Long.MAX_VALUE) long id;
+    private final @Range(from = 1, to = Long.MAX_VALUE) int id;
 
-    public ParkingClient(long id) {
+    public Entities(@Range(from = 1, to = Long.MAX_VALUE) int id) {
         this.id = id;
     }
 
-    public final @Range(from = 0, to = Long.MAX_VALUE) long getId() {
+    @Range(from = 1, to = Long.MAX_VALUE)
+    public final int getId() {
         return id;
     }
 
@@ -23,8 +24,8 @@ public abstract non-sealed class ParkingClient implements UserFactory, Serializa
     public boolean equals(@Nullable Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        @NotNull ParkingClient that = (ParkingClient) object;
-        return id == that.id;
+        @NotNull Entities entities = (Entities) object;
+        return id == entities.id;
     }
 
     @Override

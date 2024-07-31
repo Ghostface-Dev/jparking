@@ -1,36 +1,41 @@
 package org.ghostface.dev.impl;
 
-import org.ghostface.dev.factory.ParkingClient;
-import org.ghostface.dev.factory.ParkingVehicle;
+import org.ghostface.dev.core.Automobile.*;
+import org.ghostface.dev.core.Entities;
 
+import org.ghostface.dev.core.Person;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Range;
 
 import java.time.OffsetDateTime;
 
-public class Vehicle extends ParkingVehicle {
 
-    private @Nullable Client client;
-    private final @NotNull String name;
+public class Vehicle extends Entities implements ParkedVehicle {
+
     private final @NotNull String plate;
     private final @NotNull String brand;
+    private final @NotNull String name;
     private @NotNull String color;
-    private final @NotNull OffsetDateTime creationDate;
+    private @Nullable Client client;
+    private final @NotNull OffsetDateTime date;
 
-    public Vehicle(@Range(from = 1, to = Long.MAX_VALUE) long id, @NotNull String plate, @NotNull String name, @NotNull String brand, @NotNull String color) {
+    public Vehicle(@Range(from = 1, to = Long.MAX_VALUE) int id, @NotNull String plate, @NotNull String brand, @NotNull String name, @NotNull String color) {
         super(id);
         this.plate = plate;
-        this.name = name;
         this.brand = brand;
+        this.name = name;
         this.color = color;
-        this.creationDate = OffsetDateTime.now();
+        this.date = OffsetDateTime.now();
     }
 
-    // getters
+    //getters
 
-    @Override
-    public @Nullable ParkingClient getClient() {
+    public final @NotNull OffsetDateTime getDate() {
+        return date;
+    }
+
+    public final @Nullable Person.ParkingAttendee getClient() {
         return client;
     }
 
@@ -45,27 +50,25 @@ public class Vehicle extends ParkingVehicle {
     }
 
     @Override
-    public @NotNull String getColor() {
-        return color;
-    }
-
-    @Override
-    public @NotNull OffsetDateTime getDate() {
-        return creationDate;
-    }
-
     public @NotNull String getName() {
         return name;
     }
 
-    // setters
+    @Override
+    public @NotNull String getColor() {
+        return color;
+    }
 
     @Override
     public void setColor(@NotNull String color) {
         this.color = color;
     }
 
-    public void setClient(@NotNull Client client) {
+    public final void setClient(@Nullable Client client) {
+        if (this.client != null) {
+            System.err.println("Client has alread been defined by " + this.client.getName());
+            return;
+        }
         this.client = client;
     }
 
