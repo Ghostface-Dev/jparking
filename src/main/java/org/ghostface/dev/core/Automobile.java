@@ -2,8 +2,11 @@ package org.ghostface.dev.core;
 
 import org.jetbrains.annotations.NotNull;
 
-import org.ghostface.dev.core.Person.*;
 import org.jetbrains.annotations.Nullable;
+
+import java.time.OffsetDateTime;
+
+import org.ghostface.dev.core.Person.*;
 
 public interface Automobile {
 
@@ -19,7 +22,11 @@ public interface Automobile {
 
     interface ParkedVehicle extends Automobile {
 
-        @Nullable ParkingAttendee getClient();
+        @Nullable ParkingClient getOwner();
+
+        @NotNull OffsetDateTime getDate();
+
+        void setOwner(@NotNull ParkingClient owner);
 
     }
 }
